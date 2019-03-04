@@ -1,4 +1,4 @@
-# Stockapp
+# Stockapp [![Build Status](https://travis-ci.org/siag-sggw/angularapp.svg?branch=master)](https://travis-ci.org/siag-sggw/angularapp) 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
 
