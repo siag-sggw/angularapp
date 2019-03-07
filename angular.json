@@ -138,5 +138,8 @@
       }
     }
   },
-  "defaultProject": "stockapp"
+  "defaultProject": "stockapp",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

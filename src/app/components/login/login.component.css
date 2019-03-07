@@ -1,0 +1,14 @@
+mat-card {    
+    max-width: 500px;
+    min-width: 150px;    
+    margin: 2em auto;
+}
+
+mat-form-field {
+    font-size: 1.2em !important;
+    width: 100% !important;
+}
+
+button {
+    height: 3rem !important;
+}
