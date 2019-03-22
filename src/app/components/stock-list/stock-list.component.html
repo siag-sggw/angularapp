@@ -1,0 +1,14 @@
+<div>
+  <div>
+    <app-stock-item 
+      *ngFor="let stock of stockList"
+      [stockItem]="stock"
+      (click)="onStockItemClick(stock)">
+    </app-stock-item>
+  </div>
+  <div>
+    <app-stock-item-detail
+      [stockItem]="selectedStock">
+    </app-stock-item-detail>
+  </div>
+</div>
