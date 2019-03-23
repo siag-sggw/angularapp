@@ -7,8 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store/reducers';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -34,7 +32,6 @@ import { StockItemDetailComponent } from './components/stock-item-detail/stock-i
     FormsModule,
     HttpClientModule,
     MaterialModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
     LayoutModule,
   ],
   providers: [],

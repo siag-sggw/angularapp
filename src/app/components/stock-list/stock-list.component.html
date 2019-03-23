@@ -8,6 +8,7 @@
   </div>
   <div>
     <app-stock-item-detail
+      *ngIf="selectedStock != null"
       [stockItem]="selectedStock">
     </app-stock-item-detail>
   </div>

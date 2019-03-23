@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
 import { StockItem } from '../models/stock-item.model';
 import { StockMomentInfo } from '../models/stock-moment-info';
@@ -14,7 +14,6 @@ export class StockService {
   ];
 
   private stockList: StockItem[];
-  
 
   constructor(private http: HttpClient) {
     this.stockList = [];
@@ -22,14 +21,14 @@ export class StockService {
    }
 
   getStockBySymbol(symbol: string) {
-    let url = 'https://api.iextrading.com/1.0/stock/'+ symbol +'/chart?filter=date,high,low,open,close';
+    const url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart?filter=date,high,low,open,close';
     return this.http.get(url);
   }
 
   getAllStock() {
     this.stockSymbols.forEach( symbol => {
       this.getStockBySymbol(symbol).subscribe( (el: StockMomentInfo[]) => {
-        let stock: StockItem = new StockItem(symbol, el);
+        const stock: StockItem = new StockItem(symbol, el);
         this.stockList.push(stock);
         console.log(stock);
       });
