@@ -16,9 +16,7 @@ export class StockListComponent implements OnInit {
     this.stockService.getStockList().subscribe( arr => this.stockList = arr);
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   onStockItemClick(stock: StockItem) {
     this.selectedStock = stock;
