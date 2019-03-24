@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material';
+import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
 
 @Component({
   selector: 'app-login-page',
@@ -13,8 +15,8 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService
-      ) { }
+    private authService: AuthService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -26,4 +28,7 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
+  onRegister() {
+    this.dialog.open(RegisterDialogComponent);
+  }
 }

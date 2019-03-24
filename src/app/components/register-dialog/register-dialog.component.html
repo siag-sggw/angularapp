@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()">
+  <div  mat-dialog-content>
+    <mat-form-field>
+      <input matInput [(ngModel)]="email" type="text" name="email" placeholder="admin" autocomplete="off">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="password" type="password" name="password" placeholder="admin" autocomplete="off">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="repeatPassword" type="password" name="repeatPassword" placeholder="admin"
+        autocomplete="off">
+    </mat-form-field><br>
+  </div>
+  <div mat-dialog-action>
+    <button id="close-button" mat-flat-button color="link" mat-dialog-close>Close</button>
+    <button mat-flat-button color="primary" type="submit">Register</button>
+  </div>
+</form>
