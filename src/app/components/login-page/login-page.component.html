@@ -11,7 +11,7 @@
         <input matInput [(ngModel)]="password" type="password" name="password" placeholder="admin" autocomplete="off">
       </mat-form-field><br>
       <button (click)="onLogin()" mat-flat-button color="primary" type="submit">Login</button>
-      <button mat-flat-button color="primary" style="float: right">Register</button>
+      <button (click)="onRegister()" mat-flat-button color="primary" style="float: right">Register</button>
     </form>
   </mat-card-content>
 </mat-card>

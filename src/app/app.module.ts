@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StockListComponent } from './components/stock-list/stock-list.component';
 import { StockItemComponent } from './components/stock-item/stock-item.component';
 import { StockItemDetailComponent } from './components/stock-item-detail/stock-item-detail.component';
+import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StockItemDetailComponent } from './components/stock-item-detail/stock-i
     DashboardComponent,
     StockListComponent,
     StockItemComponent,
-    StockItemDetailComponent
+    StockItemDetailComponent,
+    RegisterDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { StockItemDetailComponent } from './components/stock-item-detail/stock-i
     LayoutModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RegisterDialogComponent]
 })
 export class AppModule { }
