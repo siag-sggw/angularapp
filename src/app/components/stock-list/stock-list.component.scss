@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.stockList {
+    flex-direction: column;
+    flex-grow: 5;
+}
+
+.stockDetail {
+    flex-direction: column;
+    flex-grow: 2;
+    justify-content: flex-end;
+}
