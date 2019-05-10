@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register-dialog',
@@ -15,19 +16,20 @@ export class RegisterDialogComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    public dialogRef: MatDialogRef<RegisterDialogComponent>) { }
+    public dialogRef: MatDialogRef<RegisterDialogComponent>,
+    private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  onRegister() { }
+  onRegister() {
+    if(this.password === this.repeatPassword) {
+      this.authService.register(this.email, this.password);
+    }
+    this.closeDialog();
+   }
 
   closeDialog() {
-    this.dialogRef.close();
-  }
-
-  onSubmit() {
-    console.log('submit');
     this.dialogRef.close();
   }
 
