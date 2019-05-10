@@ -1,12 +1,12 @@
-<div>
-  <div>
+<div class="container">
+  <div class="stockList">
     <app-stock-item 
       *ngFor="let stock of stockList"
       [stockItem]="stock"
       (click)="onStockItemClick(stock)">
     </app-stock-item>
   </div>
-  <div>
+  <div class="stockDetail">
     <app-stock-item-detail
       *ngIf="selectedStock != null"
       [stockItem]="selectedStock">

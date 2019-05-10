@@ -16,6 +16,13 @@ import { StockItemComponent } from './components/stock-item/stock-item.component
 import { StockItemDetailComponent } from './components/stock-item-detail/stock-item-detail.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 
+import { FusionChartsModule } from 'angular-fusioncharts';
+import FusionCharts from 'fusioncharts/core';
+import candlestick from 'fusioncharts/viz/candlestick';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+FusionChartsModule.fcRoot(FusionCharts, candlestick, FusionTheme);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +41,7 @@ import { RegisterDialogComponent } from './components/register-dialog/register-d
     FormsModule,
     HttpClientModule,
     MaterialModule,
-    LayoutModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
