@@ -23,7 +23,7 @@ export class RegisterDialogComponent implements OnInit {
   }
 
   onRegister() {
-    if (this.password === this.repeatPassword) {
+    if(this.password === this.repeatPassword) {
       this.authService.register(this.email, this.password);
     }
     this.closeDialog();

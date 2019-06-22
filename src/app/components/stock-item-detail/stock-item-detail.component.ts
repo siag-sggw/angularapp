@@ -7,18 +7,18 @@ import { StockItem } from 'src/app/models/stock-item.model';
   styleUrls: ['./stock-item-detail.component.scss']
 })
 export class StockItemDetailComponent implements OnInit {
-  private stockItemLocal: StockItem;
+  private _stockItem: StockItem;
   @Input() set stockItem(value: StockItem) {
-    this.stockItemLocal = value;
+    this._stockItem = value;
     this.setChartData();
   }
 
   get stockItem(): StockItem {
-    return this.stockItemLocal;
+    return this._stockItem;
   }
 
-  dataSource: object;
-  chartConfig: object;
+  dataSource: Object;
+  chartConfig: Object;
   stockData;
 
   constructor() {
@@ -40,33 +40,33 @@ export class StockItemDetailComponent implements OnInit {
     let x = 1;
     this.stockData = [];
     this.stockItem.data.forEach( el => {
-      const temp = {
-        open: el.open.toString(),
-        high: el.high.toString(),
-        low: el.low.toString(),
-        close: el.close .toString(),
-        x: x++
+      let temp = {
+        "open": el.open.toString(),
+        "high": el.high.toString(),
+        "low": el.low.toString(),
+        "close": el.close .toString(),
+        "x": x++
       };
       this.stockData.push(temp);
     });
 
-    const symbol = this.stockItem.symbol;
+    let symbol = this.stockItem.symbol;
 
     this.dataSource = {
-      chart: {
-        caption: symbol.toUpperCase(),
-        subcaption: 'subcaption',
-        numberprefix: '$',
-        pyaxisname: 'Price (USD)',
-        theme: 'fusion',
-        showvolumechart: '0',
+      "chart": {
+        "caption": symbol.toUpperCase(),
+        "subcaption": "subcaption",
+        "numberprefix": "$",
+        "pyaxisname": "Price (USD)",
+        "theme": "fusion",
+        "showvolumechart": "0",
       },
-      dataset: [
+      "dataset": [
         {
-          data: this.stockData
+          "data": this.stockData
         }
       ]
-    };
+    }
   }
 
 }
