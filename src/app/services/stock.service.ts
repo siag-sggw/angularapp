@@ -21,7 +21,7 @@ export class StockService {
    }
 
   getStockBySymbol(symbol: string) {
-    const url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart?filter=date,high,low,open,close';
+    const url = 'https://cloud.iexapis.com/v1/stock/' + symbol + '/chart/1m/' + '?filter=date,open,high,low,close&token=pk_3becff15c5394811bbbdcf9bea4d5e63';
     return this.http.get(url);
   }
 
