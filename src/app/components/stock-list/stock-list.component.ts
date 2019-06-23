@@ -8,19 +8,24 @@ import { StockItem } from 'src/app/models/stock-item.model';
   styleUrls: ['./stock-list.component.scss']
 })
 export class StockListComponent implements OnInit {
-  stockList: StockItem[] = [];
+  stockList: StockItem[];
+  favouriteList: StockItem[]
   selectedStock: StockItem;
 
   constructor(private stockService: StockService) {
-    this.selectedStock = null;
-    this.stockService.getStockList().subscribe( arr => this.stockList = arr);
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.selectedStock = null;
+    this.stockList = [];
+    this.favouriteList = [];
+    this.stockService.getStockList().subscribe( arr => this.stockList = arr);
+    this.stockService.getFavouriteList().subscribe( arr => this.favouriteList = arr);
+  }
 
   onStockItemClick(stock: StockItem) {
-    this.selectedStock = stock;
-    console.log(stock);
+    console.log(stock); 
+    this.selectedStock = stock; 
   }
 
 }

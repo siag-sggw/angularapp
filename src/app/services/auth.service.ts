@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: boolean;
+  user: User;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -16,7 +17,7 @@ export class AuthService {
   };
   constructor(private http: HttpClient,
               private router: Router) {
-    this.user = false;
+    this.user = null;
   }
 
   login(username: string, password: string) {
@@ -24,15 +25,16 @@ export class AuthService {
     this.http.post<any>('https://nodestockapp.herokuapp.com/auth/login',
                         {username, password},
                         this.httpOptions)
-      .subscribe( user => {
-        this.user = true;
+      .subscribe( res => {
+        this.user = new User();
+        this.user.username = res.username;
         this.router.navigate(['']);
       });
   }
 
   logout() {
     this.http.get<any>('https://nodestockapp.herokuapp.com/auth/logout');
-    this.user = false;
+    this.user = null;
   }
 
   register(username: string, password: string) {

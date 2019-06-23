@@ -12,11 +12,12 @@ export class StockService {
   stockSymbols: string[] = [
     'aapl', 'msft', 'googl'
   ];
-
+  private favouriteList: StockItem[];
   private stockList: StockItem[];
 
   constructor(private http: HttpClient) {
     this.stockList = [];
+    this.favouriteList = [];
     this.getAllStock();
    }
 
@@ -37,5 +38,20 @@ export class StockService {
 
   getStockList(): Observable<StockItem[]> {
     return of(this.stockList);
+  }
+
+  getFavouriteList(): Observable<StockItem[]> {
+    return of(this.favouriteList);
+  }
+
+  addFavouriteStock(symbol: string) {
+    this.favouriteList.push(this.stockList.find(stock => stock.symbol === symbol));
+  }
+
+  removeFavouriteStock(symbol: string) {
+    var index  = this.favouriteList.findIndex(stock => stock.symbol === symbol);
+    if(index != -1) {
+      this.favouriteList.splice(index,1);
+    }
   }
 }
