@@ -13,9 +13,9 @@
       <mat-tab label="Favourites">
         <mat-action-list>
           <app-stock-item
-          *ngFor="let stock of stockList"
+          *ngFor="let stock of favoriteStocks"
           [stockItem]="stock"
-          (click)="onStockItemClick(stock)">
+          (click)="onFavoriteClick(stock)">
         </app-stock-item>
       </mat-action-list>
       </mat-tab>

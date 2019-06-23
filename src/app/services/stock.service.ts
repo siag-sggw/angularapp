@@ -13,10 +13,17 @@ export class StockService {
     'amzn', 'msft', 'amd', 'ebay', 'intc', 'aapl'
   ];
 
+  favoriteStockSymbols: string[] = [
+    'amzn'
+  ];
+
   private stockList: StockItem[];
+
+  private favoritesStocks: StockItem[];
 
   constructor(private http: HttpClient) {
     this.stockList = [];
+    this.favoritesStocks = [];
     this.getAllStock();
    }
 
@@ -30,6 +37,9 @@ export class StockService {
       this.getStockBySymbol(symbol).subscribe( (el: StockMomentInfo[]) => {
         const stock: StockItem = new StockItem(symbol, el);
         this.stockList.push(stock);
+        if (this.favoriteStockSymbols.includes(stock.symbol)) {
+          this.favoritesStocks.push(stock)
+        }
         console.log(stock);
       });
     });
@@ -37,5 +47,19 @@ export class StockService {
 
   getStockList(): Observable<StockItem[]> {
     return of(this.stockList);
+  }
+
+  getFavoriteStocksList(): Observable<StockItem[]> {
+    return of(this.favoritesStocks);
+  }
+
+  setFavorite(stock: StockItem) {
+    if (!this.favoritesStocks.includes(stock)) {
+      this.favoritesStocks.push(stock)
+    }
+  }
+
+  removeFavorite(symbol: StockItem) {
+    this.favoritesStocks = this.favoritesStocks.filter(stock => stock.symbol != symbol.symbol)
   }
 }
