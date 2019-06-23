@@ -1,0 +1,23 @@
+<form>
+  <div mat-dialog-title>
+    <h3 style="margin-left: 35%;">Register</h3>
+  </div>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput [(ngModel)]="email" type="text" name="email" placeholder="E-mail" autocomplete="off">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="password" type="password" name="password" placeholder="Password" autocomplete="off">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="repeatPassword" type="password" name="repeatPassword" placeholder="Repeat password"
+        autocomplete="off">
+    </mat-form-field><br>
+  </div>
+  <div mat-dialog-action>
+    <div class="buttons">
+        <button id="close-button" mat-flat-button color="link" mat-dialog-close>Close</button>
+        <button mat-flat-button (click)="onRegister()" color="primary">Register</button>
+    </div>
+  </div>
+</form>
