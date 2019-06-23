@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StockItem } from 'src/app/models/stock-item.model';
 import { StockService } from 'src/app/services/stock.service';
+import { PredictionService } from 'src/app/services/prediction.service';
+import { Prediction } from 'src/app/models/prediction.model';
 
 @Component({
   selector: 'app-stock-item-detail',
@@ -12,6 +14,9 @@ export class StockItemDetailComponent implements OnInit {
   @Input() set stockItem(value: StockItem) {
     this._stockItem = value;
     this.setChartData();
+    this.predictionService.getPrediction(this.stockItem.symbol).subscribe ( (el: Prediction) => {
+      this.prediction = el
+    })
   }
 
   get stockItem(): StockItem {
@@ -19,13 +24,14 @@ export class StockItemDetailComponent implements OnInit {
   }
 
   favoriteStocks: StockItem[] = [];
+  prediction: Prediction
 
   dataSource: Object;
   chartConfig: Object;
   stockData;
   stockLabels;
 
-  constructor(private stockService: StockService) {
+  constructor(private stockService: StockService, private predictionService: PredictionService) {
     this.stockData = [];
     this.stockService.getFavoriteStocksList().subscribe( arr => this.favoriteStocks = arr )
    }

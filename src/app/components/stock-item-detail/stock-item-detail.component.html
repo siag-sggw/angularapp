@@ -1,5 +1,4 @@
 <div class="upperContainer">
-
     <div class="favButton">
       <div *ngIf="isFavorite(stockItem); else elseBlock">
         <button mat-icon-button  color="primary" (click)="removeFavoriteClick(stockItem)">
@@ -22,5 +21,6 @@
         defaultAnimation='0'>
     </fusioncharts>
     </div>
+    <app-prediction></app-prediction>
 </div>
   

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-prediction',
@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PredictionComponent implements OnInit {
 
-  constructor(public date : Date,
-              public price : number,
-              public growthTrend : boolean ) {
-              }
+  @Input() date : Date;
+  @Input() price : number;
+  @Input() growthTrend : boolean;
+  constructor() {}
 
   ngOnInit() {
   }
