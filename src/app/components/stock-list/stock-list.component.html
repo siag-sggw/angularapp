@@ -2,18 +2,22 @@
   <div class="stockList">
     <mat-tab-group>
       <mat-tab label="Stocks">
-        <app-stock-item
-        *ngFor="let stock of stockList"
-        [stockItem]="stock"
-        (click)="onStockItemClick(stock)">
-      </app-stock-item>
+        <mat-action-list>
+          <app-stock-item
+          *ngFor="let stock of stockList"
+          [stockItem]="stock"
+          (click)="onStockItemClick(stock)">
+        </app-stock-item>
+      </mat-action-list>
       </mat-tab>
       <mat-tab label="Favourites">
-        <app-stock-item
-        *ngFor="let stock of stockList"
-        [stockItem]="stock"
-        (click)="onStockItemClick(stock)">
+        <mat-action-list>
+          <app-stock-item
+          *ngFor="let stock of stockList"
+          [stockItem]="stock"
+          (click)="onStockItemClick(stock)">
         </app-stock-item>
+      </mat-action-list>
       </mat-tab>
     </mat-tab-group>
 </div>

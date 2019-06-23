@@ -44,7 +44,7 @@ export class StockItemDetailComponent implements OnInit {
         "open": el.open.toString(),
         "high": el.high.toString(),
         "low": el.low.toString(),
-        "close": el.close .toString(),
+        "close": el.close.toString(),
         "x": x++
       };
       this.stockData.push(temp);

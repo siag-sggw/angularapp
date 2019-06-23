@@ -10,7 +10,7 @@ import { StockMomentInfo } from '../models/stock-moment-info';
 export class StockService {
 
   stockSymbols: string[] = [
-    'aapl', 'msft', 'googl'
+    'amzn', 'msft', 'amd', 'ebay', 'intc', 'aapl'
   ];
 
   private stockList: StockItem[];
