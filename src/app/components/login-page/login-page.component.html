@@ -1,17 +1,20 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title><img mat-card-md-image src="assets/increase.png" alt="App logo"></mat-card-title>
+    <mat-card-subtitle>Welcome!</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form>
       <mat-form-field>
-        <input matInput [(ngModel)]="username" type="text" name="username" placeholder="admin" autocomplete="off">
+        <input matInput [(ngModel)]="username" type="text" name="username" placeholder="E-mail" autocomplete="off">
       </mat-form-field><br>
+    
       <mat-form-field>
-        <input matInput [(ngModel)]="password" type="password" name="password" placeholder="admin" autocomplete="off">
+        <input matInput [(ngModel)]="password" type="password" name="password" placeholder="Password" autocomplete="off">
       </mat-form-field><br>
-      <button (click)="onLogin()" mat-flat-button color="primary">Login</button>
-      <button (click)="onRegister()" mat-flat-button color="primary" style="float: right">Register</button>
+
+      <button (click)="onLogin()" mat-flat-button color="primary" style="margin-left: 95px;" >Login</button>
+      <button (click)="onRegister()" mat-flat-button color="primary" style="float: right; margin-right: 100px;">Register</button>
     </form>
   </mat-card-content>
 </mat-card>
