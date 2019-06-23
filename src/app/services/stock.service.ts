@@ -54,12 +54,18 @@ export class StockService {
   }
 
   setFavorite(stock: StockItem) {
+    console.log("OLO")
     if (!this.favoritesStocks.includes(stock)) {
+      console.log("ADD")
       this.favoritesStocks.push(stock)
     }
   }
 
   removeFavorite(symbol: StockItem) {
-    this.favoritesStocks = this.favoritesStocks.filter(stock => stock.symbol != symbol.symbol)
+    console.log("REMOVE")
+    var index = this.favoritesStocks.findIndex(elem => elem.symbol == symbol.symbol)
+    if (index == -1) { return }
+    this.favoritesStocks.slice(index, 1)
+    console.log(this.favoritesStocks)
   }
 }
