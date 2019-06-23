@@ -23,9 +23,11 @@ export class StockListComponent implements OnInit {
   onStockItemClick(stock: StockItem) {
     this.selectedStock = stock;
     console.log(stock);
+    this.stockService.getFavoriteStocksList().subscribe( arr => this.favoriteStocks = arr )
   }
 
   onFavoriteClick(stock: StockItem) {
     this.selectedStock = stock;
+    this.stockService.getFavoriteStocksList().subscribe( arr => this.favoriteStocks = arr )
   }
 }

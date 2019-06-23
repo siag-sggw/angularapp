@@ -63,9 +63,9 @@ export class StockService {
 
   removeFavorite(symbol: StockItem) {
     console.log("REMOVE")
-    var index = this.favoritesStocks.findIndex(elem => elem.symbol == symbol.symbol)
+    let index = this.favoritesStocks.findIndex(elem => elem.symbol == symbol.symbol)
     if (index == -1) { return }
-    this.favoritesStocks.slice(index, 1)
+    this.favoritesStocks.splice(index, 1)
     console.log(this.favoritesStocks)
   }
 }
