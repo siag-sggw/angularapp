@@ -15,6 +15,7 @@ import { StockListComponent } from './components/stock-list/stock-list.component
 import { StockItemComponent } from './components/stock-item/stock-item.component';
 import { StockItemDetailComponent } from './components/stock-item-detail/stock-item-detail.component';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
+import { PredictionComponent } from './components/prediction/prediction.component';
 
 import { FusionChartsModule } from 'angular-fusioncharts';
 import FusionCharts from 'fusioncharts/core';
@@ -33,6 +34,7 @@ FusionChartsModule.fcRoot(FusionCharts, candlestick, FusionTheme);
     StockItemComponent,
     StockItemDetailComponent,
     RegisterDialogComponent,
+    PredictionComponent
   ],
   imports: [
     BrowserModule,
