@@ -1,14 +1,13 @@
 <div class="upperContainer">
 
     <div class="favButton">
-      <!--isFavorite(selectedStock)-->
-      <div *ngIf="true; else elseBlock">
-        <button mat-icon-button  color="primary" (click)="addFavorite(selectedStock)">
+      <div *ngIf="isFavorite(stockItem); else elseBlock">
+        <button mat-icon-button  color="primary" (click)="removeFavoriteClick(stockItem)">
             <mat-icon>favorite</mat-icon>
         </button>
       </div>
       <ng-template #elseBlock>
-        <button mat-icon-button (click)="removeFavorite(selectedStock)">
+        <button mat-icon-button (click)="addFavoriteClick(stockItem)">
             <mat-icon>favorite</mat-icon>
         </button>
       </ng-template>

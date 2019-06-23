@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StockItem } from 'src/app/models/stock-item.model';
+import { StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-stock-item-detail',
@@ -17,13 +18,16 @@ export class StockItemDetailComponent implements OnInit {
     return this._stockItem;
   }
 
+  favoriteStocks: StockItem[] = [];
+
   dataSource: Object;
   chartConfig: Object;
   stockData;
   stockLabels;
 
-  constructor() {
+  constructor(private stockService: StockService) {
     this.stockData = [];
+    this.stockService.getFavoriteStocksList().subscribe( arr => this.favoriteStocks = arr )
    }
 
   ngOnInit() {
@@ -35,6 +39,19 @@ export class StockItemDetailComponent implements OnInit {
     };
 
     this.setChartData();
+  }
+
+  isFavorite(stock: StockItem): boolean {
+    return this.favoriteStocks.includes(stock)
+  }
+
+  addFavoriteClick(stock: StockItem) {
+    this.stockService.setFavorite(stock)
+  }
+
+  removeFavoriteClick(stock: StockItem) {
+    this.stockService.removeFavorite(stock)
+    this.stockService.getFavoriteStocksList().subscribe( arr => this.favoriteStocks = arr )
   }
 
 
