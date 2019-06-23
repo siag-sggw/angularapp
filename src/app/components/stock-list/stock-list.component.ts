@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from 'src/app/services/stock.service';
-import { FavoriteStocksService } from 'src/app/services/favorite-stocks.service';
 import { StockItem } from 'src/app/models/stock-item.model';
 
 @Component({
@@ -13,7 +12,7 @@ export class StockListComponent implements OnInit {
   favoriteStocks: StockItem[] = [];
   selectedStock: StockItem;
 
-  constructor(private stockService: StockService, private favoriteService: FavoriteStocksService) {
+  constructor(private stockService: StockService) {
     this.selectedStock = null;
     this.stockService.getStockList().subscribe( arr => this.stockList = arr);
     this.stockService.getFavoriteStocksList().subscribe( arr => this.favoriteStocks = arr )
