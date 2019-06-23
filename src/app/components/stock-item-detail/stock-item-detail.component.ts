@@ -20,6 +20,7 @@ export class StockItemDetailComponent implements OnInit {
   dataSource: Object;
   chartConfig: Object;
   stockData;
+  stockLabels;
 
   constructor() {
     this.stockData = [];
@@ -36,9 +37,11 @@ export class StockItemDetailComponent implements OnInit {
     this.setChartData();
   }
 
+
   private setChartData() {
     let x = 1;
     this.stockData = [];
+    this.stockLabels = [];
     this.stockItem.data.forEach( el => {
       let temp = {
         "open": el.open.toString(),
@@ -50,17 +53,30 @@ export class StockItemDetailComponent implements OnInit {
       this.stockData.push(temp);
     });
 
+    x = 1;
+    this.stockItem.data.forEach( el => {
+      let tempLabel = {
+        "label": el.date.toLocaleDateString().substr(4,1) == '.' ? el.date.toLocaleDateString().substr(0,4) : el.date.toLocaleDateString().substr(0,5),
+        "x": x++
+      };
+      this.stockLabels.push(tempLabel);
+    });
+
     let symbol = this.stockItem.symbol;
 
     this.dataSource = {
       "chart": {
         "caption": symbol.toUpperCase(),
-        "subcaption": "subcaption",
+        "subcaption": "Pricing details daily",
         "numberprefix": "$",
         "pyaxisname": "Price (USD)",
         "theme": "fusion",
         "showvolumechart": "0",
       },
+      "categories": [{
+        "category": this.stockLabels
+      }
+    ],
       "dataset": [
         {
           "data": this.stockData
