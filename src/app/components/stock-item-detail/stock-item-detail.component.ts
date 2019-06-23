@@ -14,13 +14,26 @@ export class StockItemDetailComponent implements OnInit {
   @Input() set stockItem(value: StockItem) {
     this._stockItem = value;
     this.setChartData();
-    this.predictionService.getPrediction(this.stockItem.symbol).subscribe ( (el: Prediction) => {
-      this.prediction = el
-    })
+    this.prediction = this.predictionService.getPrediction2(this.stockItem.symbol)
+    // this.predictionService.getPrediction(this.stockItem.symbol).subscribe ( (el: Prediction) => {
+    //   this.prediction = el
+    // })
   }
 
   get stockItem(): StockItem {
     return this._stockItem;
+  }
+
+  get dateTommorow(): Date {
+    return new Date()
+  }
+
+  get growthThread(): boolean {
+    return true
+  }
+
+  get predictionPrice(): Number {
+    return this.prediction.predicted
   }
 
   favoriteStocks: StockItem[] = [];

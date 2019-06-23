@@ -14,4 +14,8 @@ export class PredictionService {
     const url = "http://207.154.254.118:8000/api/v1/stock_price?stock=" + symbol
     return this.http.get(url)
   }
+
+  getPrediction2(symbol: string) {
+    return new Prediction(166.2)
+  }
 }
