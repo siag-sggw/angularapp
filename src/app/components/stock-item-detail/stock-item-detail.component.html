@@ -1,6 +1,27 @@
-<fusioncharts
-    [chartConfig]="chartConfig"
-    [dataSource]="dataSource"
-    animation='0'
-    defaultAnimation='0'>
-</fusioncharts>
+<div class="upperContainer">
+
+    <div class="favButton">
+      <!--isFavorite(selectedStock)-->
+      <div *ngIf="true; else elseBlock">
+        <button mat-icon-button  color="primary" (click)="addFavorite(selectedStock)">
+            <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+      <ng-template #elseBlock>
+        <button mat-icon-button (click)="removeFavorite(selectedStock)">
+            <mat-icon>favorite</mat-icon>
+        </button>
+      </ng-template>
+    </div>  
+</div>
+<div class="lowerContainer">
+    <div class="chart">
+    <fusioncharts
+        [chartConfig]="chartConfig"
+        [dataSource]="dataSource"
+        animation='0'
+        defaultAnimation='0'>
+    </fusioncharts>
+    </div>
+</div>
+  
