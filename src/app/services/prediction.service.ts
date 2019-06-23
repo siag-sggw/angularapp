@@ -7,6 +7,7 @@ import { Prediction } from '../models/prediction.model';
 })
 export class PredictionService {
 
+  predictions = { 'amzn': 1853.10, 'msft': 125.82, 'amd': 28.22, 'ebay': 39.57, 'intc': 48.58, 'aapl': 194.60 }
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +17,6 @@ export class PredictionService {
   }
 
   getPrediction2(symbol: string) {
-    return new Prediction(166.2)
+    return new Prediction(this.predictions[symbol])
   }
 }

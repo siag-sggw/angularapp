@@ -15,9 +15,9 @@ export class StockItemDetailComponent implements OnInit {
     this._stockItem = value;
     this.setChartData();
     this.prediction = this.predictionService.getPrediction2(this.stockItem.symbol)
-    // this.predictionService.getPrediction(this.stockItem.symbol).subscribe ( (el: Prediction) => {
-    //   this.prediction = el
-    // })
+    //  this.predictionService.getPrediction(this.stockItem.symbol).subscribe ( (el: Prediction) => {
+    //    this.prediction = el
+    //  })
   }
 
   get stockItem(): StockItem {
@@ -29,11 +29,13 @@ export class StockItemDetailComponent implements OnInit {
   }
 
   get growthThread(): boolean {
-    return true
+    if (this.prediction) { Number(this.stockItem.data[this.stockItem.data.length-1].open) < this.prediction.predicted }
+    return false
   }
 
   get predictionPrice(): Number {
-    return this.prediction.predicted
+    if (this.prediction) { return this.prediction.predicted }
+    return 0
   }
 
   favoriteStocks: StockItem[] = [];
