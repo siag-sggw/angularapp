@@ -1,0 +1,12 @@
+.upperContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+.favButton {
+    height: 65px;
+    line-height: 65px;
+}

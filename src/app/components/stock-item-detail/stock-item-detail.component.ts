@@ -25,7 +25,9 @@ export class StockItemDetailComponent implements OnInit {
   }
 
   get dateTommorow(): Date {
-    return new Date()
+    var date = new Date()
+    date.setDate(date.getDate() + 1);
+    return date
   }
 
   get growthThread(): boolean {
@@ -93,8 +95,12 @@ export class StockItemDetailComponent implements OnInit {
 
     x = 1;
     this.stockItem.data.forEach( el => {
+      var month = el.date.getMonth()+1;
+      var day = el.date.getDate();
+
+      var formattedDate = day + '/' + month
       let tempLabel = {
-        "label": el.date.toLocaleDateString().substr(4,1) == '.' ? el.date.toLocaleDateString().substr(0,4) : el.date.toLocaleDateString().substr(0,5),
+        "label": formattedDate,
         "x": x++
       };
       this.stockLabels.push(tempLabel);

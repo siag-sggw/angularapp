@@ -1,17 +1,3 @@
-<div class="upperContainer">
-    <div class="favButton">
-      <div *ngIf="isFavorite(stockItem); else elseBlock">
-        <button mat-icon-button  color="primary" (click)="removeFavoriteClick(stockItem)">
-            <mat-icon>favorite</mat-icon>
-        </button>
-      </div>
-      <ng-template #elseBlock>
-        <button mat-icon-button (click)="addFavoriteClick(stockItem)">
-            <mat-icon>favorite</mat-icon>
-        </button>
-      </ng-template>
-    </div>  
-</div>
 <div class="lowerContainer">
     <div class="chart">
     <fusioncharts
@@ -21,10 +7,24 @@
         defaultAnimation='0'>
     </fusioncharts>
     </div>
-    <app-prediction
+</div>
+<div class="upperContainer">
+  <app-prediction
     [date]="dateTommorow"
     [price]="predictionPrice"
     [growthTrend]="growthThread"
-    ></app-prediction>
+    ></app-prediction> 
+    <div class="favButton">
+        <div *ngIf="isFavorite(stockItem); else elseBlock">
+          <button mat-icon-button  color="primary" (click)="removeFavoriteClick(stockItem)">
+              <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
+        <ng-template #elseBlock>
+          <button mat-icon-button (click)="addFavoriteClick(stockItem)">
+              <mat-icon>favorite</mat-icon>
+          </button>
+        </ng-template>
+      </div> 
 </div>
   

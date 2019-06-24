@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PredictionComponent implements OnInit {
 
-  @Input() date : Date;
+  @Input() date : String;
   @Input() price : number;
   @Input() growthTrend : boolean;
   constructor() {}
