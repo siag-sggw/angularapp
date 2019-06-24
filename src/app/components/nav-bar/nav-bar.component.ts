@@ -12,6 +12,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavBarComponent {
 
+  username: string;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
@@ -19,7 +21,9 @@ export class NavBarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver,
               private router: Router,
-              private authService: AuthService) {}
+              private authService: AuthService) {
+                this.username = this.authService.user.username;
+              }
 
   onLogout() {
     this.router.navigate(['/login']);
