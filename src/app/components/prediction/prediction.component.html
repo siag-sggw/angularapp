@@ -3,6 +3,6 @@
     <span id="date">{{date | date: 'dd-MM-yyyy'}}</span>
     <span>wynosi: </span>
 
-    <span id="price" *ngIf="growthTrend" style="color: green;">{{price}}</span>
-    <span id="price" *ngIf="growthTrend == false" style="color: red;">{{price}}</span>
+    <span id="price" *ngIf="growthTrend" style="color: green;">{{price.toFixed(2)}}</span>
+    <span id="price" *ngIf="growthTrend == false" style="color: red;">{{price.toFixed(2)}}</span>
 </div>
